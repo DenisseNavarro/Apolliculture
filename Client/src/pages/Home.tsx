@@ -1,10 +1,27 @@
-/* const Home = () => {
+
+import video from "../../src/assets/videos/video2.mp4";
+import Filter from "../components/Filter";
+import Video from "../components/Video";
+
+
+
+const Home = () => {
     return (
-        <div>
-            
-            <h1>This is the Home</h1>
-        </div>
+
+
+        <>
+        
+        
+        <Filter />  
+        <Video src={video}/>
+        
+        
+        </>
+
+
+
     )
 }
-export default Home  */
+
+export default Home
 
