@@ -24,7 +24,7 @@ app.use(express.json())
 
 //Monta el router UsersRouter en la ruta base /users/.
 //es decir que todas las solicitudes que comiencen con /users/ serán manejadas por UsersRouter
-app.use("/users/", UsersRouter);
+app.use("/users", UsersRouter);
 
 app.use("/products/", ProductsRouter);
 

@@ -2,12 +2,13 @@ import { createPool } from 'mysql2/promise';
 
 // Objeto CONFIG: contiene la configuración necesaria para establecer la conexión a la base de datos
 const CONFIG = {
-    host: 'localhost',
+    host: 'viaduct.proxy.rlwy.net',
     user: 'root',
-    password: '1234',
-    database: 'apolliculture',
-    port: 3306
+    password: 'rjRNWEIJuntlwIoMszhmYYqDkBYAyTsv',
+    database: 'railway',
+    port: 56278
 };
 
 export const connection = createPool(CONFIG);
+
 
