@@ -10,7 +10,6 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(227, 227, 216);
   font-family: "Lato", sans-serif;
 }
 .video-container {
@@ -65,5 +64,4 @@ body {
   .footer__social-icons {
     margin-left: 0;
   }
-}
- */
+} */
