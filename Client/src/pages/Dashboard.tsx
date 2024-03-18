@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-
-
-
-const Dashboard = () => {
-    return (
-
-
-        <>
-        This is  Dasboard
-        
-        </>
-
-
-
-    )
-}
-
-export default Dashboard
-=======
 import { useState, useEffect } from 'react';
 import AddProducts from "../components/addproducts/AddProducts";
 import EditProducts from "../components/editproducts/EditProducts";
@@ -123,4 +103,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
->>>>>>> dev
