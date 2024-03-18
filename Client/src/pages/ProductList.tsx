@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Product from '../components/Products/Products';
+import { FaShoppingCart } from "react-icons/fa"
 
 const ProductList: React.FC = () => {
   const [products, setProducts] = useState<any[]>([]); // Estado para almacenar los productos
@@ -25,18 +26,27 @@ const ProductList: React.FC = () => {
   }, []);
 
   return (
-    <div className='p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16'>
+
+    <div>
+    <div className="flex justify-around  mt-7 space-x-10">
+    <h1 className="text-xl lg:text-2xl lg:space text-bold ">Choose your products</h1>
+    <button className="text-2xl rounded-md bg-amber-400 text-white px-4 h-10"
+    ><FaShoppingCart /></button>
+    </div>
+    
+    <div className='p-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-16 lg: mr-6 ml-6 lg:p-8 '>
     
       {products.map(product => (
         <Product
           key={product.id}
           image={product.image}
           name={product.name}
-          //description={product.description}
+          description={product.description}
           price={product.price}
           units_stock={product.units_stock} 
         />
       ))}
+    </div>
     </div>
   );
 };

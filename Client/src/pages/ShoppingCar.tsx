@@ -1,9 +1,9 @@
-import Car from "../components/cart/Car";
+import Cart from "../components/cart/Cart";
 
 const ShoppingCar = () => {
     return (
         <div>
-            <car/>
+            <Cart/>
         </div>
     )
 }
