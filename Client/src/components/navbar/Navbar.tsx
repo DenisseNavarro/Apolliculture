@@ -27,7 +27,7 @@ const Navbar = () => {
           <div>
           <img src="../src/assets/images/logo.png" alt='logo' className="w-40 h-auto md-6  lg:w-60 lg:mt-[-35px] " />       </div>
           
-          <div className='p-8'>
+          <div className='p-8 hoover:bg-amber-300'>
             
             <a href="/Home" className="block text-lg text-gray-800 font-semibold mb-4">HOME</a>
             <a href="/Home#about" className="block text-lg text-gray-800 font-semibold mb-4">ABOUT US</a>

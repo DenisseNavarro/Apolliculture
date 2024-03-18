@@ -4,6 +4,7 @@ import { FaShoppingCart } from "react-icons/fa"
 
 const ProductList: React.FC = () => {
   const [products, setProducts] = useState<any[]>([]); // Estado para almacenar los productos
+  const [cartItems, setCartItems] = useState<any[]>([]); // Estado para almacenar los productos en el carrito
 
   useEffect(() => {
     // Función para obtener los productos de la API falsa
@@ -25,28 +26,30 @@ const ProductList: React.FC = () => {
     fetchProducts();
   }, []);
 
-  return (
+  // Función para añadir un producto al carrito
+  const addToCart = (product: any) => {
+    setCartItems([...cartItems, product]);
+  };
 
+  return (
     <div>
-    <div className="flex justify-around  mt-7 space-x-10">
-    <h1 className="text-xl lg:text-2xl lg:space text-bold ">Choose your products</h1>
-    <button className="text-2xl rounded-md bg-amber-400 text-white px-4 h-10"
-    ><FaShoppingCart /></button>
-    </div>
-    
-    <div className='p-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-16 lg: mr-6 ml-6 lg:p-8 '>
-    
-      {products.map(product => (
-        <Product
-          key={product.id}
-          image={product.image}
-          name={product.name}
-          description={product.description}
-          price={product.price}
-          units_stock={product.units_stock} 
-        />
-      ))}
-    </div>
+      <div className="flex justify-around mt-7">
+        <h1 className="text-xl lg:text-2xl lg:space text-bold ">Choose your products</h1>
+        <button className="text-2xl rounded-md bg-amber-400 text-white px-4 h-10">
+          <FaShoppingCart />
+          <span className="ml-2">{cartItems.length}</span> {/* Mostrar la cantidad de productos en el carrito */}
+        </button>
+      </div>
+
+      <div className='p-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:mr-6 ml-6 lg:p-8'>
+        {products.map(product => (
+          <Product
+            key={product.id}
+            product={product}
+            addToCart={addToCart} // Pasar la función addToCart como prop al componente Product
+          />
+        ))}
+      </div>
     </div>
   );
 };
