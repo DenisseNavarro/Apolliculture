@@ -29,14 +29,14 @@ const Navbar = () => {
           <div>
           <img src="../src/assets/images/ApolliLogo.png" alt='logo' className="w-40 h-auto md-6  lg:w-60 lg:mt-[-35px] " />       </div>
           
-          <div className='p-4'>
-            <Link to="/Home" className="block text-lg text-gray-800 font-semibold mb-2">HOME</Link>
-            <Link to="/Home#about" className="block text-lg text-gray-800 font-semibold mb-2">ABOUT US</Link>
-            <Link to="/ProductList" className="block text-lg text-gray-800 font-semibold mb-2">PRODUCTS</Link>
-            <Link to="#contact" className="block text-lg text-gray-800 font-semibold mb-2">CONTACT US</Link>
-            <Link to="/users" className="block text-amber-400 text-xl font-semibold mb-2">USERS</Link>
-            <Link to="/dashboard" className="block text-amber-400 text-xl font-semibold mb-2">SELL</Link>
-            <Link to="/loginPage" className="block text-amber-400 text-xl font-semibold mb-2">SIGN IN</Link>
+          <div className='p-8 hoover:bg-amber-300'>
+            
+            <a href="/Home" className="block text-lg text-gray-800 font-semibold mb-4">HOME</a>
+            <a href="/Home#about" className="block text-lg text-gray-800 font-semibold mb-4">ABOUT US</a>
+            <a href="/ProductList" className="block text-lg text-gray-800 font-semibold mb-4">PRODUCTS</a>
+            <a href="#contact" className="block text-lg text-gray-800 font-semibold mb-8">CONTACT US</a>
+            <a href="/dashboard" className="block text-amber-400 text-xl font-semibold mb-4">ADMIN</a>
+            <a href="/loginregister" className="block text-amber-400 text-xl font-semibold mb-4">SIGN IN</a>
           </div>
         </div>
 
