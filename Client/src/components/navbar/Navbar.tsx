@@ -17,9 +17,12 @@ const Navbar = () => {
         <div className='flex flex-grow'>
         <img src="../src/assets/images/ApolliLogo1.png" alt='logo' className="w-32 lg:w-40 h-30 p-2 lg:w-25" /> 
         </div>
-        <div className='lg:hidden'>
+        <div className='text-4xl mr-3 lg:hidden'>
+        <ShoppingCar />
+        </div>
+        <div className='lg:hidden p-3'>
           <button 
-            className='mt-5 mb-5 mr-5 bg-amber-300 text-black border border-white rounded-md hover:border-transparent hover:text-yellow-500 hover:bg-white transition ease-in duration-500 ease-in-out'
+            className='mt-5 mb-5 mr- bg-amber-300 text-black border border-white rounded-md hover:border-transparent hover:text-yellow-500 hover:bg-white transition ease-in duration-500 ease-in-out'
             onClick={handleClick}
           >
             {isOpen ? <FiX className="w-8 h-8" /> : <FiMenu className="w-8 h-8" />}
@@ -32,13 +35,13 @@ const Navbar = () => {
           
           <div className='p-8 hoover:bg-amber-300'>
             
-            <Link to="/Home" className="block text-lg text-gray-800 font-semibold mb-4">HOME</Link>
-            <Link to="/Home#about" className="block text-lg text-gray-800 font-semibold mb-4">ABOUT US</Link>
-            <Link to="/ProductList" className="block text-lg text-gray-800 font-semibold mb-4">PRODUCTS</Link>
-            <Link to="#contact" className="block text-lg text-gray-800 font-semibold mb-8">CONTACT US</Link>
-            <Link to="/dashboard" className="block text-amber-400 text-xl font-semibold mb-4">ADMIN</Link>
-            <Link to="/loginregister" className="block text-amber-400 text-xl font-semibold mb-4">SIGN IN</Link>
-          <ShoppingCar />
+            <Link to="/Home" className="block text-lg text-gray-800 font-semibold mb-4 hover:text-amber-400 transition ease-in duration-300 ease-in-out">HOME</Link>
+            <Link to="/Home#about" className="block text-lg text-gray-800 font-semibold mb-4 hover:text-amber-400 transition ease-in duration-300 ease-in-out">ABOUT US</Link>
+            <Link to="/ProductList" className="block text-lg text-gray-800 font-semibold mb-4 hover:text-amber-400 transition ease-in duration-300 ease-in-out">PRODUCTS</Link>
+            <Link to="#contact" className="block text-lg text-gray-800 font-semibold mb-8 hover:text-amber-400 transition ease-in duration-300 ease-in-out">CONTACT US</Link>
+            <Link to="/dashboard" className="block text-amber-400 text-xl font-semibold mb-4 hover:text-black transition ease-in duration-300 ease-in-out">ADMIN</Link>
+            <Link to="/loginregister" className="block text-amber-400 text-xl font-semibold mb-4 hover:text-black transition ease-in duration-300 ease-in-out">SIGN IN</Link>
+          
           </div>
         </div>
 

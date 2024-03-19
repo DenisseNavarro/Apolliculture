@@ -18,8 +18,9 @@ function ShoppingCar() {
   };
 
   return (
-    <div className="bg-white">
-      <button onClick={toggleOrders}><FaShoppingCart /></button>
+    <div>
+      <button onClick={toggleOrders}
+      className="bg-amber-400 text-2xl"><FaShoppingCart /></button>
 
       {/* Mostrar el componente Card solo si showOrder es true */}
       {showOrder && (
