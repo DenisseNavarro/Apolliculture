@@ -26,7 +26,7 @@ const SeeProduct: React.FC<SeeProductProps> = ({
   return (
     <section>
       <button
-        className="bg-amber-400 text-black border border-white py-2 px-4 rounded-md hover:boder-transparent hover:text-white"
+        className="bg-amber-400 text-black border border-white py-2 px-4 rounded-md hover:boder-transparent hover:text-white "
         onClick={() => setModalIsOpen(true)}
       >
         View Details

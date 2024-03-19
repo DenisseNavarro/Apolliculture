@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Product from '../components/products/Products';
+import Products from '../components/products/Products';
 import { FaShoppingCart } from "react-icons/fa";
 
 const ProductList: React.FC = () => {
@@ -27,17 +27,13 @@ const ProductList: React.FC = () => {
 
   return (
     <div>
-      <div className="flex justify-around mt-7 space-x-10">
+      <div className="flex justify-around  mt-7 space-x-16 lg:mb-10 lg:mt-16">
         <h1 className="text-xl lg:text-2xl lg:space text-bold ">Choose your products</h1>
-        <button className="text-2xl rounded-md bg-amber-400 text-white px-4 h-10">
-          <FaShoppingCart />
-          
-        </button>
       </div>
     <div className='p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16'>
 
       {products.map(product => (
-        <Product
+        <Products
           key={product.id}
           image={product.image}
           name={product.name}

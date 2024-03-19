@@ -2,6 +2,7 @@ import  { useState } from 'react';
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import ShoppingCar from '../cart/ShoppingCar';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,11 +15,11 @@ const Navbar = () => {
     <nav className="bg-amber-400 lg:py-1 relative">
       <div className="container mx-auto flex px-1 xl:px-0 items-center"> 
         <div className='flex flex-grow'>
-        <img src="../src/assets/images/ApolliLogo.png" alt='logo' className="w-40 h-auto p-2 lg:w-25 lg:mt-2" /> 
+        <img src="../src/assets/images/ApolliLogo1.png" alt='logo' className="w-32 lg:w-40 h-30 p-2 lg:w-25" /> 
         </div>
         <div className='lg:hidden'>
           <button 
-            className='mt-11 mr-5 bg-amber-300 text-black border border-white rounded-md hover:border-transparent hover:text-yellow-500 hover:bg-white transition ease-in duration-500 ease-in-out'
+            className='mt-5 mb-5 mr-5 bg-amber-300 text-black border border-white rounded-md hover:border-transparent hover:text-yellow-500 hover:bg-white transition ease-in duration-500 ease-in-out'
             onClick={handleClick}
           >
             {isOpen ? <FiX className="w-8 h-8" /> : <FiMenu className="w-8 h-8" />}
@@ -27,16 +28,17 @@ const Navbar = () => {
 
         <div className={`lg:hidden fixed top-0 left-0 h-full bg-white w-60 shadow-md z-50 transition duration-300 ease-in-out transform ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
           <div>
-          <img src="../src/assets/images/ApolliLogo.png" alt='logo' className="w-40 h-auto md-6  lg:w-60 lg:mt-[-35px] " />       </div>
+          <img src="../src/assets/images/ApolliLogo.png" alt='logo' className="w-40 h-30 mt-5 ml-10 flex lg:w-60 lg:mt-[-35px] " />       </div>
           
           <div className='p-8 hoover:bg-amber-300'>
             
-            <a href="/Home" className="block text-lg text-gray-800 font-semibold mb-4">HOME</a>
-            <a href="/Home#about" className="block text-lg text-gray-800 font-semibold mb-4">ABOUT US</a>
-            <a href="/ProductList" className="block text-lg text-gray-800 font-semibold mb-4">PRODUCTS</a>
-            <a href="#contact" className="block text-lg text-gray-800 font-semibold mb-8">CONTACT US</a>
-            <a href="/dashboard" className="block text-amber-400 text-xl font-semibold mb-4">ADMIN</a>
-            <a href="/loginregister" className="block text-amber-400 text-xl font-semibold mb-4">SIGN IN</a>
+            <Link to="/Home" className="block text-lg text-gray-800 font-semibold mb-4">HOME</Link>
+            <Link to="/Home#about" className="block text-lg text-gray-800 font-semibold mb-4">ABOUT US</Link>
+            <Link to="/ProductList" className="block text-lg text-gray-800 font-semibold mb-4">PRODUCTS</Link>
+            <Link to="#contact" className="block text-lg text-gray-800 font-semibold mb-8">CONTACT US</Link>
+            <Link to="/dashboard" className="block text-amber-400 text-xl font-semibold mb-4">ADMIN</Link>
+            <Link to="/loginregister" className="block text-amber-400 text-xl font-semibold mb-4">SIGN IN</Link>
+          <ShoppingCar />
           </div>
         </div>
 
@@ -47,6 +49,7 @@ const Navbar = () => {
             <Link to="/#about" className="text-white hover:text-black transition duration-500 ease-in-out">ABOUT US</Link>
             <Link to="/ProductList" className="text-white hover:text-black transition duration-500 ease-in-out">PRODUCTS</Link>
             <Link to="#contact" className="text-white hover:text-black transition duration-500 ease-in-out">CONTACT US</Link>
+          <ShoppingCar />
           </div>
           <div className='flex items-center px-9 mt-9'>
             <Link to="/users"><FaUserCircle className="w-8 h-8 mr-3" /></Link>
