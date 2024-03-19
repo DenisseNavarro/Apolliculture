@@ -1,9 +1,27 @@
-import  { useState } from 'react';
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { getAdminBoard } from '../services/user.service';
+
+
 
 const Navbar = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const getUserRole = async () => {
+      try {
+        const response = await getAdminBoard();
+        setIsAdmin(true); // Set isAdmin to true if the user has admin role
+      } catch (error) {
+        setIsAdmin(false); // Set isAdmin to false if the user does not have admin role
+      }
+    };
+
+    getUserRole();
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
 
   function handleClick() {
@@ -30,13 +48,15 @@ const Navbar = () => {
           <img src="../src/assets/images/ApolliLogo.png" alt='logo' className="w-40 h-auto md-6  lg:w-60 lg:mt-[-35px] " />       </div>
           
           <div className='p-4'>
-            <Link to="/Home" className="block text-lg text-gray-800 font-semibold mb-2">HOME</Link>
-            <Link to="/Home#about" className="block text-lg text-gray-800 font-semibold mb-2">ABOUT US</Link>
+            <Link to="/" className="block text-lg text-gray-800 font-semibold mb-2">HOME</Link>
+            <Link to="/#about" className="block text-lg text-gray-800 font-semibold mb-2">ABOUT US</Link>
             <Link to="/ProductList" className="block text-lg text-gray-800 font-semibold mb-2">PRODUCTS</Link>
             <Link to="#contact" className="block text-lg text-gray-800 font-semibold mb-2">CONTACT US</Link>
-            <Link to="/users" className="block text-amber-400 text-xl font-semibold mb-2">USERS</Link>
             <Link to="/dashboard" className="block text-amber-400 text-xl font-semibold mb-2">SELL</Link>
             <Link to="/loginPage" className="block text-amber-400 text-xl font-semibold mb-2">SIGN IN</Link>
+            {isAdmin && (
+              <Link to="/users" className="block text-amber-400 text-xl font-semibold mb-2">USERS</Link>
+            )}
           </div>
         </div>
 
@@ -49,7 +69,9 @@ const Navbar = () => {
             <Link to="#contact" className="text-white hover:text-black transition duration-500 ease-in-out">CONTACT US</Link>
           </div>
           <div className='flex items-center px-9 mt-9'>
-            <Link to="/users"><FaUserCircle className="w-8 h-8 mr-3" /></Link>
+            {isAdmin && (
+              <Link to="/users"><FaUserCircle className="w-8 h-8 mr-3" /></Link>
+            )}
             <Link to="/dashboard" className="bg-amber-300 text-black border border-white py-2 px-5 rounded-md hover:border-transparent hover:text-yellow-500 hover:bg-white transition ease-in duration-500 ease-in-out mr-3">Sell</Link>
             <Link to="/loginPage" className="bg-amber-300 text-black border border-white py-2 px-5 rounded-md hover:border-transparent hover:text-yellow-500 hover:bg-white transition ease-in duration-500 ease-in-out">Sign in</Link>
           </div>

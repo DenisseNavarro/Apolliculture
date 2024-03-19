@@ -100,6 +100,21 @@
       "last_name": "sanchez",
       "email": "yady@gmail.com",
       "admin": 0
+    },
+    {
+      "id": "3933",
+      "username": "yady",
+      "password": "1234"
+    },
+    {
+      "id": "3818",
+      "username": "denis ",
+      "password": "1234"
+    },
+    {
+      "id": "d71a",
+      "username": "yady ",
+      "password": "1234"
     }
   ]
 }
