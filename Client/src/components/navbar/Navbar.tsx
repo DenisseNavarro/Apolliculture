@@ -40,7 +40,7 @@ const Navbar = () => {
             <Link to="/ProductList" className="block text-lg text-gray-800 font-semibold mb-4 hover:text-amber-400 transition ease-in duration-300 ease-in-out">PRODUCTS</Link>
             <Link to="#contact" className="block text-lg text-gray-800 font-semibold mb-8 hover:text-amber-400 transition ease-in duration-300 ease-in-out">CONTACT US</Link>
             <Link to="/dashboard" className="block text-amber-400 text-xl font-semibold mb-4 hover:text-black transition ease-in duration-300 ease-in-out">ADMIN</Link>
-            <Link to="/loginregister" className="block text-amber-400 text-xl font-semibold mb-4 hover:text-black transition ease-in duration-300 ease-in-out">SIGN IN</Link>
+            <Link to="/loginPage" className="block text-amber-400 text-xl font-semibold mb-4 hover:text-black transition ease-in duration-300 ease-in-out">SIGN IN</Link>
           
           </div>
         </div>
