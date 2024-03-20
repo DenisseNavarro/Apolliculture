@@ -1,5 +1,6 @@
 import React from "react";
 import SeeProduct from "../seeproduct/SeeProduct";
+import ShoppingCar from "../cart/ShoppingCar";
 
 interface ProductProps {
   image: string;
