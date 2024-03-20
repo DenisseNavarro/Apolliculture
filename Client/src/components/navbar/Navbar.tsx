@@ -1,25 +1,22 @@
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaUserCircle } from "react-icons/fa";
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
-import { getAdminBoard } from '../services/user.service';
-
-
+import { FaUserCircle } from 'react-icons/fa';
+import { getUserRole } from '../services/AuthService';
 
 const Navbar = () => {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    const getUserRole = async () => {
+    const fetchUserRole = async () => {
       try {
-        const response = await getAdminBoard();
-        setIsAdmin(true); // Set isAdmin to true if the user has admin role
+        const role = await getUserRole();
+        setIsAdmin(role === 'admin'); 
       } catch (error) {
-        setIsAdmin(false); // Set isAdmin to false if the user does not have admin role
+        console.error('Error fetching user role:', error);
       }
     };
-
-    getUserRole();
+    fetchUserRole();
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +24,6 @@ const Navbar = () => {
   function handleClick() {
     setIsOpen(!isOpen);
   }
-
   return (
     <nav className="bg-amber-400 lg:py-1 relative">
       <div className="container mx-auto flex px-1 xl:px-0 items-center"> 

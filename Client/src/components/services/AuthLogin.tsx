@@ -1,51 +1,44 @@
-const API_URL = "http://localhost:3000/Users";
-
 interface User {
   id: string;
   username: string;
   password: string;
+  admin: boolean;
 }
 
 const AuthLogin = {
   login: async (username: string, password: string): Promise<User | null> => {
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch("http://localhost:3000/Users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username,
-          password,
+          username: username,
+          password: password,
         }),
       });
 
-      const data = await response.json();
-
-      console.log(data);
-
-      if (response.ok && data.accessToken) {
-        // Save access token to local storage
-        localStorage.setItem("accessToken", data.accessToken);
+      if (!response.ok) {
+        throw new Error("Failed to authenticate");
       }
 
-      // Return the entire response data
-      return data;
+      const data = await response.json();
+      const token = data?.data?.token;
+
+      if (!token) {
+        throw new Error("Token not found in response");
+      }
+
+      // Store the token in local storage
+      localStorage.setItem("token", token);
+
+      // Return user details if needed
+      return data?.data as User;
     } catch (error) {
       console.error("Error:", error);
       return null;
     }
-  },
-
-  logout: () => {
-    localStorage.removeItem("currentUser");
-  },
-
-  getCurrentUser: () => {
-    const userStr = localStorage.getItem("currentUser");
-    if (userStr) return JSON.parse(userStr);
-
-    return null;
   },
 };
 

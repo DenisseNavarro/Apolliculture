@@ -23,7 +23,14 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchProducts = async () => {
           try {
-            const response = await fetch('http://localhost:3000/Products'); //END POINT
+            const token = localStorage.getItem('token');
+            if (!token) throw new Error('Token not found');
+            
+            const response = await fetch('http://localhost:3000/Products', {
+              headers: {
+                Authorization: `Bearer ${token}`
+              }
+            });
             if (response.ok) {
               const data = await response.json();
               setProducts(data);
